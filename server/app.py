@@ -1,5 +1,5 @@
 
-# import uvicorn
+import uvicorn
 from fastapi import FastAPI
 from prediction import predict_salary
 import schemas
@@ -23,6 +23,6 @@ def predict(request: schemas.Load):
     return prediction_salary
 
 
-# if __name__ =="__main__":
-#     uvicorn.run(app,host = '0.0.0.0',port = 8080)
+if __name__ =="__main__":
+    uvicorn.run(app,port = 8080)
     

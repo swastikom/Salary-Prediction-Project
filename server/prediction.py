@@ -7,7 +7,6 @@ from sklearn.preprocessing import LabelEncoder
 from data import get_data
 
 
-
 def predict_salary(Location,JobRole,Experience,Degree):
     # data = pd.read_csv(r'Main_Dataset.csv')
 
@@ -51,7 +50,9 @@ def predict_salary(Location,JobRole,Experience,Degree):
     # int(score)
 
     prediction_with_input_data = rfrg.predict(input_data)
-    return(int(prediction_with_input_data))
+    print(int(prediction_with_input_data))
+    predicted_salary = {'predicted_salary': int(prediction_with_input_data) }
+    return(predicted_salary)
 
 if __name__ == '__main__':
     # query = input('Enter the following details to predict your salary:')
