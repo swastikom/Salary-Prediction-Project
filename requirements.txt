@@ -2,7 +2,6 @@ pandas
 scikit-learn
 pymongo
 dotenv
-
 fastapi
 uvicorn
 passlib
