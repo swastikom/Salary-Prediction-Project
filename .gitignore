@@ -1,3 +1,4 @@
 db.config
 .env
 /venv
+__pycache__
