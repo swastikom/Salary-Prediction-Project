@@ -6,12 +6,7 @@ from sklearn.metrics import r2_score
 from sklearn.preprocessing import LabelEncoder
 from data import get_data
 
-def fetch_data():
-    try:
-        data = get_data()
-        return data
-    except:
-        return "Dataset not available"
+
 
 def predict_salary(Location,JobRole,Experience,Degree):
     # data = pd.read_csv(r'Main_Dataset.csv')
