@@ -2,3 +2,10 @@ pandas
 scikit-learn
 pymongo
 dotenv
+
+fastapi
+uvicorn
+passlib
+bcrypt
+python-jose
+python-multipart
