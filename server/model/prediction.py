@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score 
 from sklearn.preprocessing import LabelEncoder
-from .data import get_data
+from model.data import get_data
 
 
 
