@@ -2,7 +2,6 @@
 # import uvicorn
 from fastapi import FastAPI
 from prediction import predict_salary
-from data import get_data
 import schemas
 
 app = FastAPI()
