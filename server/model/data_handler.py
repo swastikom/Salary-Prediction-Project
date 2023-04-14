@@ -40,7 +40,7 @@ if __name__ == '__main__':
     choice = input("Enter '1' to insert data or '2' to clear the database: ")
     
     if choice == '1':
-        datafile = "data/" + input("Enter data file name to insert: ")
+        datafile = "dataset/" + input("Enter data file name to insert: ")
         insert_data(datafile)
     elif choice == '2':
         collection_name = collection.name
