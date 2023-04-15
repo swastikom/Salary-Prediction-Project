@@ -1,0 +1,9 @@
+-> Data Set and Data Input Normalization
+
+-> Front End Implementation
+
+-> API connection to Front End
+
+-> Code Minimalization
+
+-> Documentation
