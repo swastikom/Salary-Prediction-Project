@@ -8,5 +8,4 @@ passlib
 bcrypt
 python-jose
 python-multipart
-json
 requests
