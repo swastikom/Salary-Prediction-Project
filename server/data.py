@@ -23,7 +23,7 @@ def get_data():
     # DB_HOST = os.getenv('DB_HOST')
     
     
-        # client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_HOST}?retryWrites=true&w=majority")
+    # client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_HOST}?retryWrites=true&w=majority")
 
     # db = client.salary_data
     # collection = db.salary_data_coll
