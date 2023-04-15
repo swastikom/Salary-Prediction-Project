@@ -11,20 +11,20 @@ def predict_salary(Location,JobRole,Experience,Degree):
     # data = pd.read_csv(r'Main_Dataset.csv')
 
     try:
-        data = get_data()
+        dataset = get_data()
     except:
         return "Dataset not available"
     
-    print(data.shape)
+    print(dataset.shape)
     # input_data = pd.read_csv(r'sample_test_data.csv') 
 
     location_encoder = LabelEncoder()
     job_role_encoder = LabelEncoder()
     degree_encoder = LabelEncoder()
 
-    location_encoder.fit(data['Location'])
-    job_role_encoder.fit(data['Job Role'])
-    degree_encoder.fit(data['Degree'])
+    location_encoder.fit(dataset['Location'])
+    job_role_encoder.fit(dataset['Job Role'])
+    degree_encoder.fit(dataset['Degree'])
     
     input_data = pd.DataFrame(columns=['Location', 'Job Role', 'Experience (Years)', 'Degree'])
     input_data['Location'] = location_encoder.transform([Location])
@@ -32,12 +32,12 @@ def predict_salary(Location,JobRole,Experience,Degree):
     input_data['Degree'] = degree_encoder.transform([Degree])
     input_data['Experience (Years)'] = Experience
 
-    data['Location'] = location_encoder.transform(data['Location'])
-    data['Job Role'] = job_role_encoder.transform(data['Job Role'])
-    data['Degree'] = degree_encoder.transform(data['Degree'])
+    dataset['Location'] = location_encoder.transform(dataset['Location'])
+    dataset['Job Role'] = job_role_encoder.transform(dataset['Job Role'])
+    dataset['Degree'] = degree_encoder.transform(dataset['Degree'])
 
-    X = data[['Location', 'Job Role', 'Experience (Years)', 'Degree']]
-    y = data['Salary']
+    X = dataset[['Location', 'Job Role', 'Experience (Years)', 'Degree']]
+    y = dataset['Salary']
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
     rfrg = RandomForestRegressor(n_estimators=100,random_state=1)
