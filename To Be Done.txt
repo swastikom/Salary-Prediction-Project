@@ -3,7 +3,7 @@
 -> Front End Implementation
 
 -> API connection to Front End
-            https://salaryprediction1141.ethan-x11.repl.co/
+            https://salaryprediction1141.ethan-x11.repl.co/predict
 
 -> Code Minimalization
 
