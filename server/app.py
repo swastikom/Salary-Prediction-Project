@@ -1,27 +1,13 @@
 
 import uvicorn
 from fastapi import FastAPI
-from prediction import predict_salary
-import schemas
+from routers import pred,home
+
 
 app = FastAPI()
 
-@app.get('/')
-def homePage():
-    return{ 'data': 'Welcome to this colaboration project'}
-
-
-@app.post('/predict')
-def predict(request: schemas.Load):
-    prediction_salary = predict_salary(
-        Location = request.location,
-        JobRole=request.jobrole ,
-        Experience=request.experience,
-        Degree=request.degree
-    )
-    
-    return prediction_salary
-
+app.include_router(home.router)
+app.include_router(pred.router)
 
 if __name__ =="__main__":
     uvicorn.run(app)
