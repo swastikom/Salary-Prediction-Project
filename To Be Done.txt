@@ -1,4 +1,4 @@
--> Data Set and Data Input Normalization
+-> Data Set and Data Input Normalization - > Done
 
 -> Front End Implementation
 
