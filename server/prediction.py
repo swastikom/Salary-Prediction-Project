@@ -48,7 +48,7 @@ def predict(Location,JobRole,Experience,Degree):
     mean_squared_error(y_test,y_pred)
     score = r2_score(y_test, y_pred)
     score = score * 100
-    # int(score)
+    # print(int(score))
 
     prediction_with_input_data = rfrg.predict(input_data)
     print(int(prediction_with_input_data))
