@@ -44,7 +44,7 @@ def get_data():
     else:
         return "Failed to fetch data from API"
     
-    # df.to_csv('data.csv', index=False)
+    df.to_csv('data.csv', index=False)
 
     # Print the DataFrame
     # print(df)
