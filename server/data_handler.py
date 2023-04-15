@@ -15,14 +15,21 @@ API_KEY = os.getenv('API_KEY')
 API_SECRET = os.getenv('API_SECRET')
 
 # Connect to MongoDB
-client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_HOST}?retryWrites=true&w=majority")
+try:
+    client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_HOST}?retryWrites=true&w=majority")
+except pymongo.errors.ConnectionFailure as e:
+    print(f"Could not connect to MongoDB: {e}")
 
 db = client.salary_data
 collection = db.salary_data_coll
 
 def insert_data(datafile):
     # Load CSV data into DataFrame
-    df = pd.read_csv(datafile)
+    try:
+        df = pd.read_csv(datafile)
+    except FileNotFoundError:
+        print("File not found. Please check the file name and try again.")
+        return
 
     # Convert DataFrame to list of dictionaries
     data = df.to_dict(orient='records')
@@ -33,7 +40,11 @@ def insert_data(datafile):
 
 def clear_data(collection_name):
     # Delete all documents from collection
-    collection.delete_many({})
+    try:
+        collection.delete_many({})
+    except pymongo.errors.OperationFailure as e:
+        print(f"Could not delete documents from {collection_name} collection: {e}")
+        
     print(f"All documents from {collection_name} collection have been deleted.")
 
 if __name__ == '__main__':
