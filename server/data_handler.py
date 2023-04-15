@@ -1,6 +1,6 @@
 import pandas as pd
 import pymongo
-
+import re
 import os
 from dotenv import load_dotenv
 
@@ -31,9 +31,10 @@ def insert_data(datafile):
         print("File not found. Please check the file name and try again.")
         return
 
+    df = df.applymap(lambda x: re.sub(r'[^a-zA-Z0-9\s]', '', x.lower()) if type(x) == str else x)
     # Convert DataFrame to list of dictionaries
     data = df.to_dict(orient='records')
-
+    
     # Insert data into MongoDB collection
     collection.insert_many(data)
     print("Data inserted successfully!")

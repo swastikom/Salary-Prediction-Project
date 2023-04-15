@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 import requests
 import json
+import io
+import re
 
 def remove_id(obj):
     if isinstance(obj, list):
@@ -53,18 +55,24 @@ def get_data():
     if response.status_code == 200:
         data = response.json()
         df = pd.DataFrame(remove_id(data))
-    #   df.drop('_id', axis=1, inplace=True)
-        df.to_csv('data.csv', index=False)
-        df = pd.read_csv('data.csv')
+        
+        datacsv = io.StringIO()
+        
+        df.to_csv(datacsv, index=False)
 
+        datacsv.seek(0)
+        df = pd.read_csv(datacsv)
+
+        doc_attributes = set(df['documents'].apply(lambda x: list(eval(x).keys())[0:]).explode())
         # Create new columns from the dictionary values in the 'documents' column
-        df[['Location', 'Job Role', 'Experience (Years)', 'Degree', 'Salary']] = df['documents'].apply(lambda x: pd.Series(eval(x)))
-
+        for attr in doc_attributes:
+            df[attr] = df['documents'].apply(lambda x: eval(x)[attr])
+        df = df.applymap(lambda x: re.sub(r'[^a-zA-Z0-9\s]', '', x.lower()) if type(x) == str else x)
+        
         # Drop the 'documents' column
         df.drop('documents', axis=1, inplace=True)
+        df.to_csv('data.csv', index=False)
 
-        # Save the reformatted CSV file
-        df.to_csv('reformatted_data.csv', index=False)
         return df
     else:
         return "Failed to fetch data from API"

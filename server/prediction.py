@@ -5,9 +5,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score 
 from sklearn.preprocessing import LabelEncoder
 from data import get_data
+import re
 
 
-def predict_salary(Location,JobRole,Experience,Degree):
+def predict(Location,JobRole,Experience,Degree):
     # data = pd.read_csv(r'Main_Dataset.csv')
 
     try:
@@ -53,6 +54,15 @@ def predict_salary(Location,JobRole,Experience,Degree):
     print(int(prediction_with_input_data))
     predicted_salary = {'predicted_salary': int(prediction_with_input_data) }
     return(predicted_salary)
+
+def predict_salary(Location,JobRole,Experience,Degree):
+    Location = re.sub(r'[^a-zA-Z0-9\s]', '', Location.lower())
+    JobRole = re.sub(r'[^a-zA-Z0-9\s]', '', JobRole.lower())
+    Degree = re.sub(r'[^a-zA-Z0-9\s]', '', Degree.lower())
+    try:
+        return predict(Location,JobRole,Experience,Degree)
+    except Exception:
+        return "Failed to predict salary"
 
 if __name__ == '__main__':
     # query = input('Enter the following details to predict your salary:')
