@@ -2,3 +2,5 @@ db.config
 .env
 /venv
 __pycache__
+data.csv
+reformatted_data.csv
