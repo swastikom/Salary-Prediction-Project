@@ -62,7 +62,8 @@ def predict_salary(Location,JobRole,Experience,Degree):
     try:
         return predict(Location,JobRole,Experience,Degree)
     except Exception:
-        return "Failed to predict salary"
+        exc = {'error': "Failed to predict salary"}
+        return exc
 
 if __name__ == '__main__':
     # query = input('Enter the following details to predict your salary:')

@@ -5,7 +5,8 @@ const styles = {
   title: "pl-8 w-1/4",
   ul: "flex justify-between items-center space-between ",
   li: "m-3 text-[#04acc9] hover:underline hover:pb-1",
-  h2: "text-[#ffffff]"
+  h2: "text-[#ffffff]",
+  logo: "text-[#04acc9] text-2xl",
 };
 
 
