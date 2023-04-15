@@ -53,9 +53,6 @@ def get_data():
     if response.status_code == 200:
         data = response.json()
         df = pd.DataFrame(remove_id(data))
-        print("404")
-        print(df)
-        print("404")
     #   df.drop('_id', axis=1, inplace=True)
         df.to_csv('data.csv', index=False)
         df = pd.read_csv('data.csv')
