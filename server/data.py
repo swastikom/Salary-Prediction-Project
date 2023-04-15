@@ -71,7 +71,7 @@ def get_data():
         
         # Drop the 'documents' column
         df.drop('documents', axis=1, inplace=True)
-        df.to_csv('data.csv', index=False)
+        # df.to_csv('data.csv', index=False)
 
         return df
     else:
