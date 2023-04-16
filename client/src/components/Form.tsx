@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import { BeatLoader } from 'react-spinners';
 
 const styles = {
     container: 'flex flex-col justify-center items-center h-screen',
@@ -8,7 +9,8 @@ const styles = {
     label: 'text-lg font-medium mb-2',
     button: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
     result: 'mt-8 text-xl font-bold',
-    loading: 'mt-8 text-xl font-bold',
+    loading: 'mt-8 text-xl font-bold flex flex-col items-center justify-center',
+    loadingColor: '#3B82F6',
 };
 
 const Form = () => {
@@ -19,7 +21,7 @@ const Form = () => {
     const [result, setResult] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
 
         const data = {
@@ -43,7 +45,7 @@ const Form = () => {
         setLoading(false);
 
         const { predicted_salary, status } = await response.json();
-        if(status === 'ok')
+        if (status === 'ok')
             setResult(`Predicted Salary: ${predicted_salary}`);
         else
             setResult('Something went wrong');
@@ -67,7 +69,7 @@ const Form = () => {
                             onChange={(event) => setLocation(event.target.value)}
                             className={styles.input}
                         />
-    
+
                         <label htmlFor="jobRole" className={styles.label}>Job Role</label>
                         <input
                             id="jobRole"
@@ -76,7 +78,7 @@ const Form = () => {
                             onChange={(event) => setJobRole(event.target.value)}
                             className={styles.input}
                         />
-    
+
                         <label htmlFor="experience" className={styles.label}>Experience (Years)</label>
                         <input
                             id="experience"
@@ -85,7 +87,7 @@ const Form = () => {
                             onChange={(event) => setExperience(event.target.value)}
                             className={styles.input}
                         />
-    
+
                         <label htmlFor="degree" className={styles.label}>Degree</label>
                         <input
                             id="degree"
@@ -94,11 +96,16 @@ const Form = () => {
                             onChange={(event) => setDegree(event.target.value)}
                             className={styles.input}
                         />
-    
+
                         <button type="submit" className={styles.button}>Submit</button>
                     </form>
                 )}
-                {loading && <p className={styles.loading}>Loading...</p>}
+                {loading && (
+                    <div className={styles.loading}>
+                        <BeatLoader color={styles.loadingColor} />
+                        <p>Loading...</p>
+                    </div>
+                )}
                 {result && (
                     <div>
                         <p className={styles.result}>{result}</p>
@@ -108,7 +115,7 @@ const Form = () => {
             </div>
         </>
     );
-    
+
 };
 
 export default Form;
