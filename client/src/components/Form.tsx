@@ -4,11 +4,13 @@ import { BeatLoader } from 'react-spinners';
 
 const styles = {
     container: 'flex flex-col justify-center items-center h-screen',
-    form: 'w-1/2 p-8 bg-white shadow-lg rounded-lg',
-    input: 'w-full mb-4 p-2 border-gray-300 rounded-md',
-    label: 'text-lg font-medium mb-2',
-    button: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
-    result: 'mt-8 text-xl font-bold',
+    form: 'w-full h-full p-8 bg-white shadow-lg rounded-lg',
+    input: 'w-full mb-4 p-2 bg-purple-300 border-gray-300 rounded-md',
+    label: 'text-lg text-blue-600 font-medium mb-2',
+    buttonsub: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
+    button: 'w-1/2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
+    resultbox: 'm-8 flex flex-col items-center justify-center',
+    result: 'm-8 text-3xl font-bold',
     loading: 'mt-8 text-xl font-bold flex flex-col items-center justify-center',
     loadingColor: '#3B82F6',
 };
@@ -61,25 +63,39 @@ const Form = () => {
             <div className={styles.container}>
                 {!loading && !result && (
                     <form onSubmit={handleSubmit} className={styles.form}>
-                        <label htmlFor="location" className={styles.label}>Location</label>
-                        <input
+                        <label htmlFor="location" className={styles.label}>
+                            Location
+                        </label>
+                        <select
                             id="location"
-                            type="text"
                             value={location}
                             onChange={(event) => setLocation(event.target.value)}
                             className={styles.input}
-                        />
+                        >
+                            <option value="">--Select Location--</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Pune">Pune</option>
+                        </select>
 
-                        <label htmlFor="jobRole" className={styles.label}>Job Role</label>
-                        <input
+                        <label htmlFor="jobRole" className={styles.label}>
+                            Job Role
+                        </label>
+                        <select
                             id="jobRole"
-                            type="text"
                             value={jobRole}
                             onChange={(event) => setJobRole(event.target.value)}
                             className={styles.input}
-                        />
+                        >
+                            <option value="">--Select Job Role--</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="Data Scientist">Data Scientist</option>
+                            <option value="Java Engineer">Java Engineer</option>
+                        </select>
 
-                        <label htmlFor="experience" className={styles.label}>Experience (Years)</label>
+                        <label htmlFor="experience" className={styles.label}>
+                            Experience (Years)
+                        </label>
                         <input
                             id="experience"
                             type="number"
@@ -88,16 +104,21 @@ const Form = () => {
                             className={styles.input}
                         />
 
-                        <label htmlFor="degree" className={styles.label}>Degree</label>
-                        <input
+                        <label htmlFor="degree" className={styles.label}>
+                            Degree
+                        </label>
+                        <select
                             id="degree"
-                            type="text"
                             value={degree}
                             onChange={(event) => setDegree(event.target.value)}
                             className={styles.input}
-                        />
-
-                        <button type="submit" className={styles.button}>Submit</button>
+                        >
+                            <option value="">--Select Degree--</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Master's">Master's</option>
+                            <option value="PhD">PhD</option>
+                        </select>
+                        <button type="submit" className={styles.buttonsub}>Submit</button>
                     </form>
                 )}
                 {loading && (
@@ -107,7 +128,7 @@ const Form = () => {
                     </div>
                 )}
                 {result && (
-                    <div>
+                    <div className={styles.resultbox}>
                         <p className={styles.result}>{result}</p>
                         <button onClick={() => setResult('')} className={styles.button}>Recalculate</button>
                     </div>
