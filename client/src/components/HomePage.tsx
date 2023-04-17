@@ -1,31 +1,30 @@
 import React from 'react';
 import Form from '@/components/Form';
+import HeroSection from '@/components/HeroSection';
+import About from '@/components/About';
+import Footer from '@/components/Footer';
 
 const styles = {
-    container: 'flex flex-row justify-between items-top h-screen overflow-hidden',
-    leftSection: 'w-1/2 p-8 bg-gray-100 flex flex-col justify-top items-start',
-    heading: 'text-3xl font-bold mb-4',
-    description: 'text-lg mb-4',
-    rightSection: 'w-1/2 m-2 bg-gray-100 rounded-lg',
+    container: 'flex flex-col justify-between items-top bg-blue-600 overflow-hidden',
+    heroSection: 'w-full',
+    formSection: 'w-full',
+    aboutSection: 'w-full bg-white',
+    form: '',
 };
 
 const HomePage = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.leftSection}>
-                <h1 className={styles.heading}>Salary Prediction App</h1>
-                <p className={styles.description}>
-                    This web application uses machine learning algorithms to predict
-                    salaries based on location, job role, experience, and degree.
-                </p>
-                <p className={styles.description}>
-                    Try it out and see how much you could earn in different roles and
-                    locations!
-                </p>
+            <div className={styles.heroSection}>
+                <HeroSection />
             </div>
-            <div className={styles.rightSection}>
-                <Form />
+            <div className={styles.formSection}>
+                {/* <Form /> */}
             </div>
+            <div className={styles.aboutSection}>
+                <About />
+            </div>
+            <Footer />
         </div>
     );
 };
