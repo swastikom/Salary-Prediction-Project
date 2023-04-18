@@ -22,9 +22,9 @@ const HomePage = () => {
                 {/* <Form /> */}
             </div>
             <div className={styles.aboutSection}>
-                <About />
+                {/* <About /> */}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
