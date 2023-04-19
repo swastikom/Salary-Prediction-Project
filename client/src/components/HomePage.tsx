@@ -1,11 +1,11 @@
-
+import React from 'react';
 import Form from '@/components/Form';
 import HeroSection from '@/components/HeroSection';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 const styles = {
-    container: 'bg-blue-600',
+    container: 'bg-blue-600 overflow-hidden',
     heroSection: 'w-full',
     formSection: 'w-full',
     aboutSection: 'w-full bg-white',
