@@ -1,21 +1,22 @@
 import React from 'react'
+import Link from 'next/link'
 
 const styles = {
   footer: "",
   footerContainer: "flex align-center justify-center items-center pt-5 pb-5",
   footerItems: "pl-5 pr-5 text-white",
-  footerCopyright: "justify-center items-center text-white",
+  footerBottom: "text-white justify-center pt-5 pb-5",
 };
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
       <ul className={styles.footerContainer}>
-        <li className={styles.footerItems}>Home</li>
-        <li className={styles.footerItems}>About</li>
-        <li className={styles.footerItems}>Contact</li>
+        <li className={styles.footerItems}><Link href={''}>Home</Link> </li>
+        <li className={styles.footerItems}><Link href={''}>Home</Link> </li>
+        <li className={styles.footerItems}><Link href={''}>Home</Link> </li>
       </ul>
-      <div className={styles.footerCopyright}>Copyright</div>
+      <div className={styles.footerBottom}>Copyright</div>
     </div>
   );
 }
