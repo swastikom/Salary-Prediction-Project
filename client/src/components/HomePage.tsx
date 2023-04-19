@@ -5,7 +5,7 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 const styles = {
-    container: 'flex flex-col justify-between items-top bg-blue-600 overflow-hidden',
+    container: 'bg-blue-600',
     heroSection: 'w-full',
     formSection: 'w-full',
     aboutSection: 'w-full bg-white',
@@ -19,12 +19,12 @@ const HomePage = () => {
                 <HeroSection />
             </div>
             <div className={styles.formSection}>
-                {/* <Form /> */}
+                <Form />    
             </div>
             <div className={styles.aboutSection}>
                 {/* <About /> */}
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };
