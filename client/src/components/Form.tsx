@@ -3,15 +3,20 @@ import Head from 'next/head';
 import { BeatLoader } from 'react-spinners';
 
 const styles = {
-    container: 'flex flex-col justify-center items-center h-screen',
-    form: 'w-full h-full p-8 bg-white shadow-lg rounded-lg',
-    input: 'w-full mb-4 p-2 bg-purple-300 border-gray-300 rounded-md',
+    container: 'mt-96 z-50 bg-white flex flex-row justify-center items-center h-screen',
+    left: 'w-1/2 flex flex-col items-center justify-center',
+    right: 'w-1/3',
+    headerline: 'text-5xl text-bold text-center rounded-3xl bg-blue-500 text-white p-2 w-96 h-full p-6',
+    form: 'w-full p-8 py-16 bg-blue-500 bg-opacity-20 rounded-3xl shadow-xl',
+    formhead:'text-bold text-3xl text-center pb-4 italic text-blue-600',
+    input: 'w-full mb-4 p-2 px-4 bg-blue-300 border-gray-300 ',
     label: 'text-lg text-blue-600 font-medium mb-2',
     buttonsub: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
     button: 'w-1/2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
-    resultbox: 'm-8 flex flex-col items-center justify-center',
-    result: 'm-8 text-3xl font-bold',
-    loading: 'mt-8 text-xl font-bold flex flex-col items-center justify-center',
+    resultbox: 'py-16 px-8 flex flex-col justify-between rounded-3xl bg-blue-500 text-white py-2 h-full',
+    resulthead: 'py-4 text-6xl text-bold  underline',
+    result: 'py-4 text-6xl text-bold text-bold text-center text-white text-right',
+    loading: 'mt-8 text-xl flex flex-col items-center justify-center',
     loadingColor: '#3B82F6',
 };
 
@@ -34,23 +39,29 @@ const Form = () => {
         };
 
         setLoading(true);
+        try {
+            const response = await fetch('https://salaryprediction1141.ethan-x11.repl.co/predict', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                },
+                body: JSON.stringify(data),
+            });
 
-        const response = await fetch('https://salaryprediction1141.ethan-x11.repl.co/predict', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify(data),
-        });
+            const { predicted_salary, status } = await response.json();
+            if (status === 'ok')
+                setResult(`₹${predicted_salary}`);
+            else
+                setResult('Something went wrong');
+
+        } catch (error) {
+            setResult('Server Down');
+        }
 
         setLoading(false);
 
-        const { predicted_salary, status } = await response.json();
-        if (status === 'ok')
-            setResult(`Predicted Salary: ${predicted_salary}`);
-        else
-            setResult('Something went wrong');
+
     };
 
     return (
@@ -61,8 +72,31 @@ const Form = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={styles.container}>
-                {!loading && !result && (
+                <div className={styles.left}>
+                    {!loading && !result && (
+                        <div className={styles.headerline}>
+                            PREDICT YOUR SALARY
+                        </div>
+                    )}
+                    {loading && (
+                        <div className={styles.loading}>
+                            <BeatLoader color={styles.loadingColor} />
+                            <p>Loading...</p>
+                        </div>
+                    )}
+                    {!loading && result && (
+                        <div className={styles.resultbox}>
+                            <div className={styles.resulthead}>Your Wage</div>
+                            <p className={styles.result}>{result}</p>
+                            {/* <button onClick={() => setResult('')} className={styles.button}>Recalculate</button> */}
+                        </div>
+                    )}
+                </div>
+                <div className={styles.right}>
                     <form onSubmit={handleSubmit} className={styles.form}>
+                        <h1 className={styles.formhead}>
+                            Fill to Predict !
+                        </h1>
                         <label htmlFor="location" className={styles.label}>
                             Location
                         </label>
@@ -120,19 +154,7 @@ const Form = () => {
                         </select>
                         <button type="submit" className={styles.buttonsub}>Submit</button>
                     </form>
-                )}
-                {loading && (
-                    <div className={styles.loading}>
-                        <BeatLoader color={styles.loadingColor} />
-                        <p>Loading...</p>
-                    </div>
-                )}
-                {result && (
-                    <div className={styles.resultbox}>
-                        <p className={styles.result}>{result}</p>
-                        <button onClick={() => setResult('')} className={styles.button}>Recalculate</button>
-                    </div>
-                )}
+                </div>
             </div>
         </>
     );

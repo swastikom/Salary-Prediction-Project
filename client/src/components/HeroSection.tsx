@@ -7,7 +7,7 @@ const styles = {
     wrapper: 'bg-green-600 h-[40vh]',
     bg: 'mt-20 bg-blue-600',
     container: 'px-64 w-screen flex flex-row bg-blue-600 relative',
-    img: 'z-0 transform translate-y-1/4 w-full h-full object-cover',
+    img: '-z-10 transform translate-y-1/4 w-full h-full object-cover',
     left: 'z-20 w-[100rem] transform -translate-y-[9.50%] translate skew-y-3',
     leftBottom: 'bottom-0 left-0 h-12 w-full bg-blue-600',
     right: 'z-30 pl-16 flex flex-col justify-center text-center pl-6 italic',

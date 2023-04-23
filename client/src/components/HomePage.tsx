@@ -5,10 +5,10 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 const styles = {
-    container: 'bg-blue-600 overflow-hidden',
-    heroSection: 'w-full',
-    formSection: 'w-full',
-    aboutSection: 'w-full bg-white',
+    container: 'absolute bg-blue-600 overflow-hidden',
+    heroSection: 'z-10 w-screen',
+    formSection: 'z-40 w-screen',
+    aboutSection: 'z-0 w-screen bg-white',
     form: '',
 };
 
@@ -22,7 +22,7 @@ const HomePage = () => {
                 <Form />    
             </div>
             <div className={styles.aboutSection}>
-                {/* <About /> */}
+                <About />
             </div>
             <Footer />
         </div>
