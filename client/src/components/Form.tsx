@@ -106,7 +106,7 @@ const Form = () => {
                             onChange={(event) => setLocation(event.target.value)}
                             className={styles.input}
                         >
-                            <option value="">--Select Location--</option>
+                            <option value="">-- Select Job Location --</option>
                             <option value="Kolkata">Kolkata</option>
                             <option value="Bangalore">Bangalore</option>
                             <option value="Pune">Pune</option>
@@ -121,7 +121,7 @@ const Form = () => {
                             onChange={(event) => setJobRole(event.target.value)}
                             className={styles.input}
                         >
-                            <option value="">--Select Job Role--</option>
+                            <option value="">-- Select Job Role --</option>
                             <option value="Data Analyst">Data Analyst</option>
                             <option value="Data Scientist">Data Scientist</option>
                             <option value="Java Engineer">Java Engineer</option>
@@ -147,7 +147,7 @@ const Form = () => {
                             onChange={(event) => setDegree(event.target.value)}
                             className={styles.input}
                         >
-                            <option value="">--Select Degree--</option>
+                            <option value="">-- Select Degree --</option>
                             <option value="Bachelor's">Bachelor's</option>
                             <option value="Master's">Master's</option>
                             <option value="PhD">PhD</option>
