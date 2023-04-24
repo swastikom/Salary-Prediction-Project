@@ -16,7 +16,7 @@ const styles = {
     line3: 'p-2 flex flex-row justify-center align-left items-end',
     head2: 'text-6xl font-bold text-white flex flex-row justify-center items-center',
     head3: 'pl-4 text-6xl text-white',
-    box:'h-40 w-full bg-blue-600 transform skew-y-3 overflow -translate-y-[75%] overflow',
+    box:'h-40 w-full bg-blue-600 transform skew-y- overflow -translate-y-[75%] overflow',
 }
 
 const HeroSection = () => {

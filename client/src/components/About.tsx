@@ -1,8 +1,9 @@
  import React from 'react'
 
 const styles = {
-  wrapper: "text-white bg-blue-600 w-full flex items-center px-32 justify-between pb-20",
-  main: "text-6xl text-bold italic pl-5 pr-3 pt-9 pb-5 ml-10 ",
+  wrapper:
+    "pt-20 rounded-t-full text-white bg-blue-600 w-full flex items-center px-32 justify-between pb-20",
+  main: "text-6xl font-bold italic pl-5 pr-3 pt-9 pb-5 ml-10 ",
   text: "text-xl pl-3 pt-9 pr-9 pb-5 ml-20 mr-20",
 };
 

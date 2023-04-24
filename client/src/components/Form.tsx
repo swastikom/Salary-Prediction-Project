@@ -6,10 +6,10 @@ const styles = {
     container: 'mt-96 z-50 bg-white flex flex-row justify-center items-center h-screen',
     left: 'w-1/2 flex flex-col items-center justify-center',
     right: 'w-1/3',
-    headerline: 'text-5xl text-bold text-center rounded-3xl bg-blue-500 text-white p-2 w-96 h-full p-6',
+    headerline: 'text-5xl font-bold text-center rounded-3xl bg-blue-500 text-white p-2 w-96 h-full p-6',
     form: 'w-full p-8 py-16 bg-blue-500 bg-opacity-20 rounded-3xl shadow-xl',
     formhead:'text-bold text-3xl text-center pb-4 italic text-blue-600',
-    input: 'w-full mb-4 p-2 px-4 bg-blue-300 border-gray-300 ',
+    input: 'w-full mb-4 p-2 px-4 bg-white rounded-md border-blue-300 placeholder-blue-400',
     label: 'text-lg text-blue-600 font-medium mb-2',
     buttonsub: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
     button: 'w-1/2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
@@ -65,98 +65,107 @@ const Form = () => {
     };
 
     return (
-        <>
-            <Head>
-                <title>Salary Prediction Form</title>
-                <meta name="description" content="Form to predict salary" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <div className={styles.container}>
-                <div className={styles.left}>
-                    {!loading && !result && (
-                        <div className={styles.headerline}>
-                            PREDICT YOUR SALARY
-                        </div>
-                    )}
-                    {loading && (
-                        <div className={styles.loading}>
-                            <BeatLoader color={styles.loadingColor} />
-                            <p>Loading...</p>
-                        </div>
-                    )}
-                    {!loading && result && (
-                        <div className={styles.resultbox}>
-                            <div className={styles.resulthead}>Your Wage</div>
-                            <p className={styles.result}>{result}</p>
-                            {/* <button onClick={() => setResult('')} className={styles.button}>Recalculate</button> */}
-                        </div>
-                    )}
-                </div>
-                <div className={styles.right}>
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <h1 className={styles.formhead}>
-                            Fill to Predict !
-                        </h1>
-                        <label htmlFor="location" className={styles.label}>
-                            Location
-                        </label>
-                        <select
-                            id="location"
-                            value={location}
-                            onChange={(event) => setLocation(event.target.value)}
-                            className={styles.input}
-                        >
-                            <option value="">-- Select Job Location --</option>
-                            <option value="Kolkata">Kolkata</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Pune">Pune</option>
-                        </select>
+      <>
+        <Head>
+          <title>Salary Prediction Form</title>
+          <meta name="description" content="Form to predict salary" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div className={styles.container}>
+          <div className={styles.left}>
+            {!loading && !result && (
+              <div className={styles.headerline}>Predict Your Salary !</div>
+            )}
+            {loading && (
+              <div className={styles.loading}>
+                <BeatLoader color={styles.loadingColor} />
+                <p>Loading...</p>
+              </div>
+            )}
+            {!loading && result && (
+              <div className={styles.resultbox}>
+                <div className={styles.resulthead}>Your Wage</div>
+                <p className={styles.result}>{result}</p>
+                {/* <button onClick={() => setResult('')} className={styles.button}>Recalculate</button> */}
+              </div>
+            )}
+          </div>
+          <div className={styles.right}>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <h1 className={styles.formhead}>Fill to Predict !</h1>
+              <label htmlFor="location" className={styles.label}>
+                Location
+              </label>
+              <select
+                id="location"
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}
+                className={styles.input}
+                placeholder="Select Job Location"
+              >
+                <option value="" className="text-blue-500" disabled selected hidden>
+                  {" "}
+                  Select Job Location{" "}
+                </option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Pune">Pune</option>
+              </select>
 
-                        <label htmlFor="jobRole" className={styles.label}>
-                            Job Role
-                        </label>
-                        <select
-                            id="jobRole"
-                            value={jobRole}
-                            onChange={(event) => setJobRole(event.target.value)}
-                            className={styles.input}
-                        >
-                            <option value="">-- Select Job Role --</option>
-                            <option value="Data Analyst">Data Analyst</option>
-                            <option value="Data Scientist">Data Scientist</option>
-                            <option value="Java Engineer">Java Engineer</option>
-                        </select>
+              <label htmlFor="jobRole" className={styles.label}>
+                Job Role
+              </label>
+              <select
+                id="jobRole"
+                value={jobRole}
+                onChange={(event) => setJobRole(event.target.value)}
+                className={styles.input}
+              >
+                <option value="" className="text-blue-500">
+                  {" "}
+                  Select Job Role{" "}
+                </option>
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Java Engineer">Java Engineer</option>
+              </select>
 
-                        <label htmlFor="experience" className={styles.label}>
-                            Experience (Years)
-                        </label>
-                        <input
-                            id="experience"
-                            type="number"
-                            value={experience}
-                            onChange={(event) => setExperience(event.target.value)}
-                            className={styles.input}
-                        />
+              <label htmlFor="experience" className={styles.label}>
+                Experience (Years)
+              </label>
+              <input
+                id="experience"
+                type="number"
+                value={experience}
+                onChange={(event) => setExperience(event.target.value)}
+                className={styles.input}
+                placeholder="Experience (Years)"
+              />
 
-                        <label htmlFor="degree" className={styles.label}>
-                            Degree
-                        </label>
-                        <select
-                            id="degree"
-                            value={degree}
-                            onChange={(event) => setDegree(event.target.value)}
-                            className={styles.input}
-                        >
-                            <option value="">-- Select Degree --</option>
-                            <option value="Bachelor's">Bachelor's</option>
-                            <option value="Master's">Master's</option>
-                            <option value="PhD">PhD</option>
-                        </select>
-                        <button type="submit" className={styles.buttonsub}>Submit</button>
-                    </form>
-                </div>
-            </div>
-        </>
+              <label htmlFor="degree" className={styles.label}>
+                Degree
+              </label>
+              <select
+                id="degree"
+                value={degree}
+                onChange={(event) => setDegree(event.target.value)}
+                className={styles.input}
+              >
+                <option value="" className="text-blue-500">
+                  {" "}
+                  Select Degree{" "}
+                </option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+              </select>
+              <button type="submit" className={styles.buttonsub}>
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </>
     );
 
 };
