@@ -9,7 +9,6 @@ const styles = {
     heroSection: 'z-10 w-screen',
     formSection: 'z-40 w-screen',
     aboutSection: 'z-0 w-screen bg-white',
-    form: '',
 };
 
 const HomePage = () => {
