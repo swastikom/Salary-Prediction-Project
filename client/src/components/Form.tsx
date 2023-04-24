@@ -9,7 +9,7 @@ const styles = {
     headerline: 'text-5xl text-bold text-center rounded-3xl bg-blue-500 text-white p-2 w-96 h-full p-6',
     form: 'w-full p-8 py-16 bg-blue-500 bg-opacity-20 rounded-3xl shadow-xl',
     formhead:'text-bold text-3xl text-center pb-4 italic text-blue-600',
-    input: 'w-full mb-4 p-2 px-4 bg-white text-black rounded-md border-blue-300 placeholder-blue-400',
+    input: 'w-full mb-4 p-2 px-4 bg-white text-blue-600 rounded-md border-blue-300 placeholder-blue-400',
     label: 'text-lg text-blue-600 font-medium mb-2',
     buttonsub: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
     button: 'w-1/2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
@@ -32,7 +32,7 @@ const Form = () => {
         event.preventDefault();
 
         const data = {
-            location,
+            location: location,
             jobrole: jobRole,
             experience: Number(experience),
             degree,
