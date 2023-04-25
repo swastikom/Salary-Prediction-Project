@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const {fontFamily} = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -9,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // 'sans': ['Inter var', ...defaultTheme.fontFamily.sans],
-        'Lob': ['Lobster', 'cursive'],
+        nunu: ["var(--font-lobster)", ...fontFamily.mono],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

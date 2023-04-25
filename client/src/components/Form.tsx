@@ -3,19 +3,19 @@ import Head from 'next/head';
 import { BeatLoader } from 'react-spinners';
 
 const styles = {
-  container: 'mt-96 z-50 bg-white flex flex-row justify-center items-center h-screen',
+  container: 'mt-96 z-50 flex flex-row justify-center items-center h-screen transform -translate-y-80',
   left: 'w-1/2 flex flex-col items-center justify-center',
   right: 'w-1/3',
-  headerline: 'text-5xl text-bold text-center rounded-3xl bg-blue-500 text-white p-2 w-96 h-full p-6',
-  form: 'w-full p-8 py-16 bg-blue-500 bg-opacity-20 rounded-3xl shadow-xl',
-  formhead: 'text-bold text-3xl text-center pb-4 italic text-blue-600',
+  headerline: 'text-3xl font-bold text-center rounded-2xl shadow-lg bg-blue-500 text-white p-6 w-[30rem] h-full',
+  form: 'w-full p-8 py-16 bg-blue-200  rounded-3xl shadow-xl',
+  formhead: 'font-bold text-3xl text-center pb-8 italic text-blue-600',
   input: 'w-full mb-4 p-2 px-4 bg-white text-blue-600 rounded-md border-blue-300 placeholder-blue-400',
   label: 'text-lg text-blue-600 font-medium mb-2',
   buttonsub: 'w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
   button: 'w-1/2 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded-md',
-  resultbox: 'py-16 px-8 flex flex-col justify-between rounded-3xl bg-blue-500 text-white py-2 h-full',
-  resulthead: 'py-4 text-6xl text-bold  underline',
-  result: 'py-4 text-6xl text-bold text-bold text-center text-white text-right',
+  resultbox: 'py-16 px-8 flex flex-col justify-between rounded-3xl bg-blue-500 shadow-lg text-white py-2 h-full',
+  resulthead: 'py-4 text-4xl flex justify-center font-bold underline',
+  result: 'py-4 text-5xl flex justify-center font-bold text-center text-white text-right',
   loading: 'mt-8 text-xl flex flex-col items-center justify-center',
   loadingColor: '#3B82F6',
 };
@@ -93,9 +93,9 @@ const Form = () => {
         <div className={styles.right}>
           <form onSubmit={handleSubmit} className={styles.form}>
             <h1 className={styles.formhead}>Fill to Predict !</h1>
-            <label htmlFor="location" className={styles.label}>
+            {/* <label htmlFor="location" className={styles.label}>
               Location
-            </label>
+            </label> */}
             <select
               id="location"
               value={location}
@@ -111,10 +111,26 @@ const Form = () => {
               <option value="Bangalore">Bangalore</option>
               <option value="Pune">Pune</option>
             </select>
-
-            <label htmlFor="jobRole" className={styles.label}>
+            {/* <label htmlFor="degree" className={styles.label}>
+              Degree
+            </label> */}
+            <select
+              id="degree"
+              value={degree}
+              required
+              onChange={(event) => setDegree(event.target.value)}
+              className={styles.input}
+            >
+              <option value="" className="text-blue-500">
+                Select Degree
+              </option>
+              <option value="Bachelor's">Bachelor's</option>
+              <option value="Master's">Master's</option>
+              <option value="PhD">PhD</option>
+            </select>
+            {/* <label htmlFor="jobRole" className={styles.label}>
               Job Role
-            </label>
+            </label> */}
             <select
               id="jobRole"
               value={jobRole}
@@ -130,9 +146,9 @@ const Form = () => {
               <option value="Java Engineer">Java Engineer</option>
             </select>
 
-            <label htmlFor="experience" className={styles.label}>
+            {/* <label htmlFor="experience" className={styles.label}>
               Experience (Years)
-            </label>
+            </label> */}
             <input
               id="experience"
               type="number"
@@ -144,35 +160,7 @@ const Form = () => {
               className={styles.input}
               placeholder="Experience (Years)"
             />
-            <input
-              id="experience"
-              type="range"
-              min="0"
-              max="30"
-              value={experience}
-              required
-              onChange={(event) => setExperience(event.target.value)}
-              className={styles.input}
-            />
 
-
-            <label htmlFor="degree" className={styles.label}>
-              Degree
-            </label>
-            <select
-              id="degree"
-              value={degree}
-              required
-              onChange={(event) => setDegree(event.target.value)}
-              className={styles.input}
-            >
-              <option value="" className="text-blue-500">
-                Select Degree
-              </option>
-              <option value="Bachelor's">Bachelor's</option>
-              <option value="Master's">Master's</option>
-              <option value="PhD">PhD</option>
-            </select>
             <button type="submit" className={styles.buttonsub}>
               Submit
             </button>

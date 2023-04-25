@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Righteous&display=swap'); */
-
-@font-face {
-  font-family: 'Lobster';
-  src: url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
@@ -25,7 +19,8 @@
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', 'nunu',monospace, lobster;
+  --fontFamily: "lobster";
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

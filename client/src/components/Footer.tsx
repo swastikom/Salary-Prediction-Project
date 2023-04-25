@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const styles = {
-  footer: "flex flex-col justify-center align-center pt-20",
+  footer: "flex flex-col justify-center align-center pt-20 bg-blue-500",
   footerContainer: "flex align-center justify-center items-center pt-5 pb-5",
   footerItems: "pl-5 pr-5 text-white",
   footerBottom: "text-white text-center justify-center pt-5 pb-5",
