@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Lobster } from "next/font/google";
+import { useState } from "react";
 
 const lobster = Lobster({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ const styles = {
   ul: "flex justify-between items-center space-between ",
   li: "m-3 hover:underline hover:pb-1 text-white text-xl font-san",
   h2: "",
-  logo: `text-4xl text-white ${lobster.variable} font-nunu`,
+  logo: `text-4xl text-white ${lobster.variable} font-mono`,
 };
 
 
