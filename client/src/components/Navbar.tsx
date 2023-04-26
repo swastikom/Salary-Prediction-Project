@@ -9,9 +9,9 @@ const lobster = Lobster({
 });
 
 const styles = {
-  nav: " sticky-top flex bg-blue-500 justify-between pl-40 pr-40 pt-16 pb-10 items-center h-16 text-black relative font-mono",
+  nav: " sticky-top flex bg-blue-500 justify-between pl-40 pr-40 pt-16 pb-10 items-center h-16 text-black relative font-mono overflow-hidden",
   title: "pl-8 w-1/4",
-  ul: "flex justify-between items-center space-between ",
+  ul: "hidden md:flex justify-between items-center space-between ",
   li: "m-3 hover:underline hover:pb-1 text-white text-xl font-san",
   h2: "",
   logo: `text-4xl text-white ${lobster.variable} font-mono`,

@@ -5,7 +5,7 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 const styles = {
-    container: 'absolute bg-blue-100 overflow-hidden',
+    container: 'absolute bg-blue-100',
     heroSection: 'z-40 w-screen',
     formSection: 'z-50 w-screen',
     aboutSection: 'w-screen',
