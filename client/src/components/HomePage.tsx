@@ -6,9 +6,9 @@ import Footer from '@/components/Footer';
 
 const styles = {
     container: 'absolute bg-blue-100 overflow-hidden',
-    heroSection: '-z-10 w-screen',
+    heroSection: 'z-40 w-screen',
     formSection: 'z-50 w-screen',
-    aboutSection: 'z-0 w-screen bg-white',
+    aboutSection: 'w-screen',
 };
 
 const HomePage = () => {

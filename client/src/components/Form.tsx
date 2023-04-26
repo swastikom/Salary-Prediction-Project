@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { BeatLoader } from 'react-spinners';
 
 const styles = {
-  container: 'mt-96 z-50 flex flex-row justify-center items-center h-screen transform -translate-y-80',
+  container: 'z-40 flex flex-row justify-center items-center mb-12 translate-y-0',
   left: 'w-1/2 flex flex-col items-center justify-center',
   right: 'w-1/3',
   headerline: 'text-3xl font-bold text-center rounded-2xl shadow-lg bg-blue-500 text-white p-6 w-[30rem] h-full',
